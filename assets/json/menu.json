@@ -1,0 +1,37 @@
+{
+    "menus": [
+        {
+            "menuName": "Dashboard"  
+        },
+        {
+            "menuName": "Admin",
+            "menus":[
+                {
+                    "menuName": "User"
+                },
+                {
+                    "menuName": "Role"
+                },
+                {
+                    "menuName": "Absensi"
+                }
+            ]
+        },
+        {
+            "menuName": "Stock",
+            "menus":[
+                {
+                    "menuName": "Stock"
+                }
+            ]
+        },
+        {
+            "menuName": "Master",
+            "menus":[
+                {
+                    "menuName": "System"
+                }
+            ]
+        }
+    ]
+}
