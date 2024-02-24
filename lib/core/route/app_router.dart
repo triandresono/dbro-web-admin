@@ -1,16 +1,17 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dbro_admin/domain/usecase/local_usecase/local_usecase_impl.dart';
-import 'package:dbro_admin/presentation/pages/dashboard/dashboard_page.dart';
-import 'package:dbro_admin/presentation/pages/division/division_list/division_list_worker.dart';
-import 'package:dbro_admin/presentation/pages/login/login_worker.dart';
-import 'package:dbro_admin/presentation/pages/parameter/sysconfig_list/sysconfig_list_worker.dart';
-import 'package:dbro_admin/presentation/pages/parameter/sysconfig_type/sysconfig_type_worker.dart';
-import 'package:dbro_admin/presentation/pages/role/edit_role/edit_role_worker.dart';
-import 'package:dbro_admin/presentation/pages/role/role/role_worker.dart';
+import 'package:dbro_admin/presentation/dashboard/dashboard_page.dart';
+import 'package:dbro_admin/presentation/division/division_list/division_list_worker.dart';
+import 'package:dbro_admin/presentation/division_user/division_user_list/division_user_list_worker.dart';
+import 'package:dbro_admin/presentation/login/login_worker.dart';
+import 'package:dbro_admin/presentation/parameter/sysconfig_list/sysconfig_list_worker.dart';
+import 'package:dbro_admin/presentation/parameter/sysconfig_type/sysconfig_type_worker.dart';
+import 'package:dbro_admin/presentation/role/edit_role/edit_role_worker.dart';
+import 'package:dbro_admin/presentation/role/role/role_worker.dart';
 import 'package:dbro_admin/presentation/rail/bloc/rail_extender.dart';
 import 'package:dbro_admin/presentation/rail/rail_worker.dart';
 import 'package:dbro_admin/presentation/splash/splash_page.dart';
-import 'package:dbro_admin/presentation/pages/user/user/user_page.dart';
+import 'package:dbro_admin/presentation/user/user/user_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 part 'app_router.gr.dart';
@@ -80,6 +81,10 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
           CustomRoute(
             path: DivisionListPage.path,
             page: DivisionListRoute.page,
+          ),
+          CustomRoute(
+            path: DivisionUserListPage.path,
+            page: DivisionUserListRoute.page,
           ),
         ],
       ),

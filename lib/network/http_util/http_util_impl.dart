@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:dbro_admin/data/dto/response/generic_response.dart';
+import 'package:dbro_admin/data/response/base/status_response.dart';
 import 'package:dbro_admin/domain/usecase/local_usecase/local_usecase.dart';
 import 'package:dbro_admin/network/http_util/http_util.dart';
-import 'package:dbro_admin/network/interceptor/logging_interceptor.dart';
+import 'package:dbro_admin/network/http_logger/logging_interceptor.dart';
 // import 'package:dio/browser.dart';
 import 'package:dio/dio.dart';
 part 'http_util_extender.dart';
@@ -17,7 +17,7 @@ class HttpUtilImpl with _Extender implements HttpUtil {
   }
 
   @override
-  Future<Either<Status, Map<String, dynamic>>> get({
+  Future<Either<StatusResponse, Map<String, dynamic>>> get({
     required String uri,
     Map<String, dynamic>? header,
     Map<String, dynamic>? parameter,
@@ -35,7 +35,7 @@ class HttpUtilImpl with _Extender implements HttpUtil {
   }
 
   @override
-  Future<Either<Status, Map<String, dynamic>>> post({
+  Future<Either<StatusResponse, Map<String, dynamic>>> post({
     required String uri,
     Map<String, dynamic>? header,
     Map<String, dynamic>? parameter,
@@ -55,7 +55,7 @@ class HttpUtilImpl with _Extender implements HttpUtil {
   }
 
   @override
-  Future<Either<Status, Map<String, dynamic>>> delete({
+  Future<Either<StatusResponse, Map<String, dynamic>>> delete({
     required String uri,
     Map<String, dynamic>? header,
     Map<String, dynamic>? parameter,
@@ -74,7 +74,7 @@ class HttpUtilImpl with _Extender implements HttpUtil {
   }
 
   @override
-  Future<Either<Status, Map<String, dynamic>>> put({
+  Future<Either<StatusResponse, Map<String, dynamic>>> put({
     required String uri,
     Map<String, dynamic>? header,
     Map<String, dynamic>? parameter,

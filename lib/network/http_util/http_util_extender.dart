@@ -25,11 +25,11 @@ mixin class _Extender {
     return httpHeaders;
   }
 
-  Either<Status, Map<String, dynamic>> dio_response(
+  Either<StatusResponse, Map<String, dynamic>> dio_response(
     Response<dynamic> response,
   ) {
     if (response.statusCode != 200) {
-      return Left(Status(
+      return Left(StatusResponse(
         code: (response.statusCode ?? 400).toString(),
         message: response.data?['message'] ?? response.statusMessage,
       ));
@@ -42,15 +42,15 @@ mixin class _Extender {
     }
   }
 
-  Status dio_catch(DioException e) {
+  StatusResponse dio_catch(DioException e) {
     if (e.response?.data is Map) {
-      return Status(
+      return StatusResponse(
         code: (e.response?.statusCode ?? 400).toString(),
         message: e.response?.data['message'] ?? e.message,
       );
     } else {
       final code = e.response?.statusCode ?? 400;
-      return Status(
+      return StatusResponse(
         code: (e.response?.statusCode ?? 400).toString(),
         message: e.message ?? "Exception with code [${(code)}]",
       );

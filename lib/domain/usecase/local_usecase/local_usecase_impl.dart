@@ -1,5 +1,5 @@
 import 'package:dbro_admin/domain/entity/auth/login.dart';
-import 'package:dbro_admin/domain/repository/local_repository.dart';
+import 'package:dbro_admin/data/repository/local/local_repository.dart';
 import 'package:dbro_admin/domain/usecase/local_usecase/local_usecase.dart';
 
 class LocalUsecaseImpl extends LocalUsecase {

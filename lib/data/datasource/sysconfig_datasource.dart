@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
-import 'package:dbro_admin/data/dto/response/generic_response.dart';
-import 'package:dbro_admin/data/dto/response/any/get_id_response.dart';
-import 'package:dbro_admin/data/dto/response/sysconfig/sysconfig_list_response.dart';
+import 'package:dbro_admin/data/response/base/status_response.dart';
+import 'package:dbro_admin/data/response/any/get_id_response.dart';
+import 'package:dbro_admin/data/response/sysconfig/sysconfig_list_response.dart';
 import 'package:dbro_admin/network/api/api.dart';
 import 'package:dbro_admin/network/http_util/http_util.dart';
 
@@ -9,7 +9,7 @@ class SysconfigDatasource {
   final HttpUtil http;
   SysconfigDatasource(this.http);
 
-  Future<Either<Status, SysconfigListResponse>> sysconfig_list(
+  Future<Either<StatusResponse, SysconfigListResponse>> sysconfig_list(
     Map<String, dynamic> map,
   ) async {
     try {
@@ -26,7 +26,7 @@ class SysconfigDatasource {
     }
   }
 
-  Future<Either<Status, GetIdResponse>> create(
+  Future<Either<StatusResponse, GetIdResponse>> create(
     Map<String, dynamic> body,
   ) async {
     try {

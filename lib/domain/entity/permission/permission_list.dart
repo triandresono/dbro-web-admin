@@ -1,4 +1,4 @@
-import 'package:dbro_admin/core/state_builder/case.dart';
+import 'package:dbro_admin/ui_kit/state/case.dart';
 import 'package:get/get.dart';
 
 class PermissionList {

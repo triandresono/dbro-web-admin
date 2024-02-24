@@ -1,11 +1,12 @@
-import 'package:dbro_admin/data/dto/response/generic_response.dart';
+import 'package:dbro_admin/data/response/base/base_response.dart';
+import 'package:dbro_admin/data/response/base/status_response.dart';
 
-class SysconfigList extends Generic {
+class SysconfigList extends BaseResponse {
   final List<SysconfigListItem> dtos;
   final int totalCount;
 
   SysconfigList({
-    Status? status,
+    StatusResponse? status,
     this.dtos = const [],
     this.totalCount = 0,
   }) : super(status: status);
@@ -19,7 +20,7 @@ class SysconfigList extends Generic {
 
   factory SysconfigList.fromMap(Map<String, dynamic> map) {
     return SysconfigList(
-      status: Status.failure(map),
+      status: StatusResponse.failure(map),
       dtos: map['sysconfigDTOs'] != null
           ? List<SysconfigListItem>.from(
               (map['sysconfigDTOs'] as List).map<SysconfigListItem>(

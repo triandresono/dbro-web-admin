@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:dbro_admin/data/dto/response/generic_response.dart';
-import 'package:dbro_admin/data/dto/response/any/get_id_response.dart';
-import 'package:dbro_admin/data/dto/response/permission/my_permission_response.dart';
-import 'package:dbro_admin/data/dto/response/permission/permission_list_response.dart';
+import 'package:dbro_admin/data/response/base/status_response.dart';
+import 'package:dbro_admin/data/response/any/get_id_response.dart';
+import 'package:dbro_admin/data/response/permission/my_permission_response.dart';
+import 'package:dbro_admin/data/response/permission/permission_list_response.dart';
 import 'package:dbro_admin/network/api/api.dart';
 import 'package:dbro_admin/network/http_util/http_util.dart';
 
@@ -10,7 +10,7 @@ class PermissionDatasource {
   final HttpUtil http;
   PermissionDatasource(this.http);
 
-  Future<Either<Status, GetIdResponse>> permission_create(
+  Future<Either<StatusResponse, GetIdResponse>> permission_create(
     Map<String, dynamic> body,
   ) async {
     try {
@@ -27,7 +27,7 @@ class PermissionDatasource {
     }
   }
 
-  Future<Either<Status, GetIdResponse>> permission_delete(
+  Future<Either<StatusResponse, GetIdResponse>> permission_delete(
     Map<String, dynamic> body,
   ) async {
     try {
@@ -44,7 +44,7 @@ class PermissionDatasource {
     }
   }
 
-  Future<Either<Status, PermissionListResponse>> permission_list(
+  Future<Either<StatusResponse, PermissionListResponse>> permission_list(
     Map<String, dynamic> map,
   ) async {
     try {
@@ -61,7 +61,7 @@ class PermissionDatasource {
     }
   }
 
-  Future<Either<Status, MyPermissionResponse>> get my_permission async {
+  Future<Either<StatusResponse, MyPermissionResponse>> get my_permission async {
     try {
       final result = await http.get(uri: Api.permission.my_permission);
       return result.fold(

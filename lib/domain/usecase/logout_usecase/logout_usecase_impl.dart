@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:dbro_admin/data/dto/response/generic_response.dart';
-import 'package:dbro_admin/domain/repository/user_repository.dart';
+import 'package:dbro_admin/data/response/base/status_response.dart';
+import 'package:dbro_admin/data/repository/user/user_repository.dart';
 import 'package:dbro_admin/domain/usecase/logout_usecase/logout_usecase.dart';
 
 class LogoutUsecaseImpl extends LogoutUsecase {
@@ -8,7 +8,7 @@ class LogoutUsecaseImpl extends LogoutUsecase {
   LogoutUsecaseImpl(this.repository);
 
   @override
-  Future<Either<Status, Status>> get logout {
+  Future<Either<StatusResponse, StatusResponse>> get logout {
     return repository.logout;
   }
 }

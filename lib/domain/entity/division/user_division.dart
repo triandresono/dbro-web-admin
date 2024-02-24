@@ -1,25 +1,40 @@
 class UserDivision {
-  final List<UserDivisionItem> list;
+  final List<UserDivisionItem> userListingDTOs;
 
   UserDivision({
-    this.list = const [],
+    this.userListingDTOs = const [],
   });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'list': list.map((x) => x.toMap()).toList(),
+      'userListingDTOs': userListingDTOs.map((x) => x.toMap()).toList(),
     };
   }
 
   factory UserDivision.fromMap(Map<String, dynamic> map) {
     return UserDivision(
-      list: map['list'] != null
+      userListingDTOs: map['userListingDTOs'] != null
           ? List<UserDivisionItem>.from(
-              (map['list'] as List).map<UserDivisionItem>(
+              (map['userListingDTOs'] as List).map<UserDivisionItem>(
                 (x) => UserDivisionItem.fromMap(x),
               ),
             )
           : [],
+    );
+  }
+
+  factory UserDivision.dummy() {
+    return UserDivision(
+      userListingDTOs: List.generate(3, (_) {
+        return UserDivisionItem(
+          createdBy: "LOADING VALUE",
+          email: 'LOADING VALUE',
+          createdDate: "LOADING VALUE",
+          id: "LOADING VALUE",
+          name: "LOADING VALUE",
+          role: "LOADING VALUE",
+        );
+      }),
     );
   }
 }
@@ -27,6 +42,8 @@ class UserDivision {
 class UserDivisionItem {
   final String id;
   final String name;
+  final String email;
+  final String role;
   final String createdDate;
   final String createdBy;
 
@@ -35,6 +52,8 @@ class UserDivisionItem {
     this.name = '',
     this.createdDate = '',
     this.createdBy = '',
+    this.email = '',
+    this.role = '',
   });
 
   Map<String, dynamic> toMap() {
@@ -43,6 +62,8 @@ class UserDivisionItem {
       'name': name,
       'createdDate': createdDate,
       'createdBy': createdBy,
+      'email': email,
+      'role': role,
     };
   }
 
@@ -52,6 +73,8 @@ class UserDivisionItem {
       name: map['name'] ?? '',
       createdDate: map['createdDate'] ?? '',
       createdBy: map['createdBy'] ?? '',
+      email: map['email'] ?? '',
+      role: map['role'] ?? '',
     );
   }
 }

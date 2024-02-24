@@ -1,4 +1,4 @@
-import 'package:dbro_admin/core/scroll_behavior/touch_behaviour.dart';
+import 'package:dbro_admin/utils/scroll_behaviour/touch_behaviour.dart';
 import 'package:dbro_admin/ui_kit/colors.dart';
 import 'package:dbro_admin/ui_kit/sizer.dart';
 import 'package:dbro_admin/utils/app_extension/extension.dart';
@@ -47,5 +47,46 @@ class TableParent extends StatelessWidget {
         child: child,
       );
     }
+  }
+}
+
+class ScrollableTableParent extends StatelessWidget {
+  final Widget child;
+  final double? width;
+  const ScrollableTableParent({
+    super.key,
+    required this.child,
+    this.width,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final controller = ScrollController();
+    return ScrollConfiguration(
+      behavior: TouchBehavior(),
+      child: Scrollbar(
+        thumbVisibility: true,
+        controller: controller,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          padding: const EdgeInsets.symmetric(
+            vertical: 20,
+          ),
+          controller: controller,
+          child: Theme(
+            data: Theme.of(context).copyWith(
+              dividerColor: AppColor.headerTile.withOpacity(0.1),
+            ),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: SizedBox(
+                width: width ?? 800,
+                child: child,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

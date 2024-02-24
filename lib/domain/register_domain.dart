@@ -1,3 +1,5 @@
+import 'package:dbro_admin/domain/usecase/add_user_division_usecase/add_user_division_usecase.dart';
+import 'package:dbro_admin/domain/usecase/add_user_division_usecase/add_user_division_usecase_impl.dart';
 import 'package:dbro_admin/domain/usecase/division_child_usecase/division_child_usecase.dart';
 import 'package:dbro_admin/domain/usecase/division_child_usecase/division_child_usecase_impl.dart';
 import 'package:dbro_admin/domain/usecase/division_create_relation_usecase/division_create_relation_usecase.dart';
@@ -24,6 +26,8 @@ import 'package:dbro_admin/domain/usecase/permission_delete_usecase/permission_d
 import 'package:dbro_admin/domain/usecase/permission_list_usecase/permission_list_usecase_impl.dart';
 import 'package:dbro_admin/domain/usecase/sysconfig_list_usecase/sysconfig_usecase_impl.dart';
 import 'package:dbro_admin/domain/usecase/sysconfig_list_usecase/sysconfog_list_usecase.dart';
+import 'package:dbro_admin/domain/usecase/user_division_usecase/user_division_usecase.dart';
+import 'package:dbro_admin/domain/usecase/user_division_usecase/user_division_usecase_impl.dart';
 import 'package:dbro_admin/domain/usecase/user_dropdown_usecase/user_dropdown_usecase.dart';
 import 'package:dbro_admin/domain/usecase/user_dropdown_usecase/user_dropdown_usecase_impl.dart';
 import 'package:dbro_admin/utils/app_extension/extension.dart';
@@ -59,6 +63,8 @@ class RegisterDomain {
     Get.lazy<DivisionCreateUsecase>(DivisionCreateUsecaseImpl(Get.find()));
     Get.lazy<DivisionDropdownUsecase>(DivisionDropdownUsecaseImpl(Get.find()));
     Get.lazy<UserDropdownUsecase>(UserDropdownUsecaseImpl(Get.find()));
+    Get.lazy<UserDivisionUsecase>(UserDivisionUsecaseImpl(Get.find()));
+    Get.lazy<AddUserDivisionUsecase>(AddUserDivisionUsecaseImpl(Get.find()));
     Get.lazy<DivisionCreateRelationUsecase>(
       DivisionCreateRelationUsecaseImpl(Get.find()),
     );

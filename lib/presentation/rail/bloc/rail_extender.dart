@@ -1,6 +1,6 @@
-import 'package:dbro_admin/core/constants/consts.dart';
+import 'package:dbro_admin/utils/constants/consts.dart';
 import 'package:dbro_admin/core/route/app_router.dart';
-import 'package:dbro_admin/core/state_builder/case.dart';
+import 'package:dbro_admin/ui_kit/state/case.dart';
 import 'package:dbro_admin/domain/entity/any/menu.dart';
 import 'package:dbro_admin/domain/entity/permission/my_permission.dart';
 import 'package:dbro_admin/domain/usecase/local_usecase/local_usecase.dart';

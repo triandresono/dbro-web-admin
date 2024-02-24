@@ -27,6 +27,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const DivisionListPage(),
       );
     },
+    DivisionUserListRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DivisionUserListPage(),
+      );
+    },
     EditRoleRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -104,6 +110,20 @@ class DivisionListRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'DivisionListRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [DivisionUserListPage]
+class DivisionUserListRoute extends PageRouteInfo<void> {
+  const DivisionUserListRoute({List<PageRouteInfo>? children})
+      : super(
+          DivisionUserListRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'DivisionUserListRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

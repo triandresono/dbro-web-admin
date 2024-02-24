@@ -1,4 +1,4 @@
-import 'package:dbro_admin/core/state_builder/case.dart';
+import 'package:dbro_admin/ui_kit/state/case.dart';
 import 'package:dbro_admin/ui_kit/colors.dart';
 import 'package:dbro_admin/ui_kit/sizer.dart';
 import 'package:dbro_admin/ui_kit/widgets/blank_builder.dart';

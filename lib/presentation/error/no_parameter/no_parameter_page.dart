@@ -1,4 +1,4 @@
-import 'package:dbro_admin/core/util/util.dart';
+import 'package:dbro_admin/utils/utils/util.dart';
 import 'package:dbro_admin/ui_kit/colors.dart';
 import 'package:dbro_admin/ui_kit/sizer.dart';
 import 'package:dbro_admin/ui_kit/font/font_util.dart';

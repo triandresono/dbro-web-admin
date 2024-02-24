@@ -1,6 +1,6 @@
 import 'package:dbro_admin/core/route/app_router.dart';
 import 'package:dbro_admin/domain/usecase/local_usecase/local_usecase.dart';
-import 'package:dbro_admin/presentation/pages/logout/logout_worker.dart';
+import 'package:dbro_admin/presentation/logout/logout_worker.dart';
 import 'package:dbro_admin/ui_kit/colors.dart';
 import 'package:dbro_admin/ui_kit/entity/bar.dart';
 import 'package:dbro_admin/ui_kit/widgets/animated_widget.dart';
