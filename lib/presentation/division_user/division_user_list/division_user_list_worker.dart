@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dbro_admin/core/route/app_router.dart';
+import 'package:dbro_admin/data/response/base/status_response.dart';
+import 'package:dbro_admin/ui_kit/dialog/confirmation_dialog.dart';
 import 'package:dbro_admin/ui_kit/state/case.dart';
 import 'package:dbro_admin/ui_kit/state/get_state_builder.dart';
 import 'package:dbro_admin/utils/utils/util.dart';
@@ -31,4 +33,21 @@ part 'division_user_list_page.dart';
 
 mixin class _Worker {
   final bloc = Get.find<DivisionUserListBloc>();
+
+  List<Worker> get worker {
+    return [
+      Util.listen<StatusResponse>(
+        listener: bloc.deleteCase,
+        with_loading: true,
+        callback: (state) async {
+          if (state is ErrorCase) {
+            await AppRouter.nav.error(desc: state.failure.message);
+            AppRouter.nav.pop();
+          } else if (state is LoadedCase) {
+            bloc.getUserDivision();
+          }
+        },
+      ),
+    ];
+  }
 }

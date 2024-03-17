@@ -12,9 +12,18 @@ class Util {
   static Worker listen<T>({
     required RxInterface<Case<T>> listener,
     required WorkerCallback<Case<T>> callback,
+    bool with_loading = false,
   }) {
     StreamSubscription sub = listener.listen(
       (event) {
+        if (with_loading) {
+          if (event is LoadingCase) {
+            AppRouter.nav.close_loading();
+            AppRouter.nav.show_loading();
+          } else if (event is LoadedCase || event is ErrorCase) {
+            AppRouter.nav.close_loading();
+          }
+        }
         callback(event);
       },
     );

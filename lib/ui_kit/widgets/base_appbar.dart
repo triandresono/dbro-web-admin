@@ -1,9 +1,10 @@
 import 'package:dbro_admin/core/route/app_router.dart';
-import 'package:dbro_admin/domain/usecase/local_usecase/local_usecase.dart';
+import 'package:dbro_admin/domain/usecase/local/local_usecase.dart';
 import 'package:dbro_admin/presentation/logout/logout_worker.dart';
 import 'package:dbro_admin/ui_kit/colors.dart';
 import 'package:dbro_admin/ui_kit/entity/bar.dart';
 import 'package:dbro_admin/ui_kit/widgets/animated_widget.dart';
+import 'package:dbro_admin/ui_kit/widgets/blank_builder.dart';
 import 'package:dbro_admin/utils/app_extension/extension.dart';
 import 'package:dbro_admin/ui_kit/font/font_util.dart';
 import 'package:flutter/material.dart';
@@ -14,9 +15,11 @@ import 'package:responsive_builder/responsive_builder.dart';
 class BaseAppbar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final List<Bar> menu;
+  final bool showLogout;
   const BaseAppbar({
     super.key,
     required this.title,
+    this.showLogout = true,
     this.menu = const [],
   });
   @override
@@ -26,6 +29,7 @@ class BaseAppbar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.transparent,
+      surfaceTintColor: Colors.transparent,
       elevation: 0,
       automaticallyImplyLeading: false,
       title: Padding(
@@ -85,59 +89,65 @@ class BaseAppbar extends StatelessWidget implements PreferredSizeWidget {
               ),
             ),
             const Spacer(),
-            PopupMenuButton(
-              offset: const Offset(-25, 25),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              shadowColor: Colors.grey.withOpacity(0.5),
-              padding: EdgeInsets.zero,
-              child: Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: Row(
-                  children: [
-                    Text(
-                      Get.find<LocalUsecase>().get_user.email,
-                      style: Font.fix(12.5).regular(
-                        color: AppColor.headerTile,
-                      ),
-                    ),
-                    const SizedBox(width: 2),
-                    const Icon(
-                      IconlyLight.arrow_down_2,
-                      color: AppColor.mainOrange,
-                      size: 16.5,
-                    ),
-                  ],
-                ),
-              ),
-              itemBuilder: (context) {
-                return [
-                  PopupMenuItem(
-                    height: 30,
-                    onTap: () {
-                      AppRouter.nav.dialog(dialog: const LogoutDialog());
-                    },
+            BlankBuilder(() {
+              if (showLogout) {
+                return PopupMenuButton(
+                  offset: const Offset(-25, 25),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  shadowColor: Colors.grey.withOpacity(0.5),
+                  padding: EdgeInsets.zero,
+                  child: Padding(
+                    padding: const EdgeInsets.all(3.0),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Logout',
-                          style: Font.fix(13).regular(
+                          Get.find<LocalUsecase>().get_user.email,
+                          style: Font.fix(12.5).regular(
                             color: AppColor.headerTile,
                           ),
                         ),
+                        const SizedBox(width: 2),
                         const Icon(
-                          Icons.power_settings_new_rounded,
+                          IconlyLight.arrow_down_2,
                           color: AppColor.mainOrange,
-                          size: 14,
+                          size: 16.5,
                         ),
                       ],
                     ),
                   ),
-                ];
-              },
-            )
+                  itemBuilder: (context) {
+                    return [
+                      PopupMenuItem(
+                        height: 30,
+                        onTap: () {
+                          AppRouter.nav.dialog(dialog: const LogoutDialog());
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Logout',
+                              style: Font.fix(13).regular(
+                                color: AppColor.headerTile,
+                              ),
+                            ),
+                            const Icon(
+                              Icons.power_settings_new_rounded,
+                              color: AppColor.mainOrange,
+                              size: 14,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ];
+                  },
+                );
+              } else {
+                return const SizedBox.shrink();
+              }
+            })
           ],
         ),
       ),

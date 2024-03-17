@@ -1,4 +1,6 @@
 import 'dart:ui';
+import 'package:dbro_admin/core/route/app_router.dart';
+import 'package:dbro_admin/domain/entity/any/get_id.dart';
 import 'package:dbro_admin/ui_kit/state/case.dart';
 import 'package:dbro_admin/ui_kit/state/get_state.dart';
 import 'package:dbro_admin/ui_kit/state/get_state_builder.dart';
@@ -14,6 +16,7 @@ import 'package:dbro_admin/ui_kit/widgets/base_loading.dart';
 import 'package:dbro_admin/ui_kit/widgets/prefix_builder_base_input.dart';
 import 'package:dbro_admin/ui_kit/widgets/shared_switch.dart';
 import 'package:dbro_admin/utils/constants/enumeration.dart';
+import 'package:dbro_admin/utils/utils/util.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,4 +25,17 @@ part 'component/division_add_error.dart';
 
 mixin class _Worker {
   final bloc = Get.find<DivisionAddBloc>();
+
+  List<Worker> get workers {
+    return [
+      Util.listen<GetId>(
+        listener: bloc.createCase,
+        callback: (state) {
+          if (state is LoadedCase) {
+            AppRouter.nav.pop();
+          }
+        },
+      ),
+    ];
+  }
 }

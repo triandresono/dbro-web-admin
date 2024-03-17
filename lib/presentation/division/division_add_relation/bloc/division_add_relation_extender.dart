@@ -1,8 +1,8 @@
 import 'package:dbro_admin/ui_kit/state/case.dart';
 import 'package:dbro_admin/domain/entity/any/get_id.dart';
 import 'package:dbro_admin/domain/entity/division/division_dropdown.dart';
-import 'package:dbro_admin/domain/usecase/division_create_relation_usecase/division_create_relation_usecase.dart';
-import 'package:dbro_admin/domain/usecase/division_dropdown_usecase/division_dropdown_usecase.dart';
+import 'package:dbro_admin/domain/usecase/division_create_relation/division_create_relation_usecase.dart';
+import 'package:dbro_admin/domain/usecase/division_dropdown/division_dropdown_usecase.dart';
 import 'package:dbro_admin/presentation/division/division_add_relation/argument/division_add_relation_argument.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

@@ -87,13 +87,15 @@ class _Tile extends StatelessWidget {
                                             ),
                                           );
                                         },
-                                      );
+                                      ).then((_) => bloc.getChildList(item));
                                     },
                                   ),
                                   if (item.level > 0) ...[
                                     const SizedBox(width: 12),
                                     TableButton(
-                                      onTap: () {},
+                                      onTap: () {
+                                        //TODO
+                                      },
                                       tips: "Remove Relation",
                                       icon: IconlyLight.delete,
                                       color: AppColor.headerTile,

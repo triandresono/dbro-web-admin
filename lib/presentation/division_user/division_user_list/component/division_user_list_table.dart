@@ -18,7 +18,8 @@ class _Table extends StatelessWidget {
         elevation: 8.0,
         shadowColor: Colors.grey.withOpacity(0.3),
         shape: RoundedRectangleBorder(
-          side: const BorderSide(color: Colors.white70, width: 1),
+          side: const BorderSide(
+              color: Color.fromARGB(179, 34, 25, 25), width: 1),
           borderRadius: BorderRadius.circular(8),
         ),
         child: DataTable(
@@ -135,9 +136,21 @@ class _Table extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(left: 9),
                       child: TableButton(
-                        tips: 'Edit',
-                        icon: IconlyLight.edit_square,
-                        onTap: () {},
+                        tips: 'Remove User',
+                        icon: IconlyLight.delete,
+                        onTap: () async {
+                          final result = await AppRouter.nav.dialog(
+                            dialog: const ConfirmationDialog(
+                              title: "Are you sure?",
+                              content: "Delete this user from current division",
+                              okButton: "Delete",
+                              cancelButton: "Cancel",
+                            ),
+                          );
+                          if (result == true) {
+                            bloc.removeUser(item.id);
+                          }
+                        },
                       ),
                     ),
                   ),

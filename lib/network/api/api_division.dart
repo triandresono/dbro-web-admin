@@ -10,4 +10,7 @@ class _Division with Api {
   String get createRelation => '${_division}create-relation'.uri;
   String get addUser => '${_division}add-user'.uri;
   String get userList => '${_division}list-user'.uri;
+  String get removeUser => '${_division}remove-user'.uri;
+  String get listOutlet => '${_division}list-outlet'.uri;
+  String get updatePayroll => '${_division}update-payroll-info'.uri;
 }

@@ -29,8 +29,14 @@ class DivisionAddDilalog extends StatelessWidget {
 
 class _Switch extends GetState<DivisionAddBloc> with _Worker {
   @override
+  void registerStateEffect(BuildContext currentContext) {
+    (this).disposables.addAll(workers);
+    super.registerStateEffect(currentContext);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return GetStateBuilder(
+    return GetStateBuilder<DivisionAddBloc>(
       container: this,
       context: context,
       init: bloc,
@@ -117,6 +123,55 @@ class _Body extends StatelessWidget {
                     final yes = bloc.isRoot.value;
                     return SharedSwitch(
                       onToggle: (val) => bloc.isRoot(val),
+                      toggleSize: 19,
+                      padding: 2,
+                      height: 19,
+                      width: 35,
+                      activeColor: AppColor.projectPrimary,
+                      inactiveColor: AppColor.greyField.withOpacity(0.4),
+                      value: yes,
+                    );
+                  }),
+                ],
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 12),
+        InkWell(
+          borderRadius: BorderRadius.circular(8),
+          onTap: () {
+            if (bloc.isOutlet.isTrue) {
+              bloc.isOutlet(false);
+            } else {
+              bloc.isOutlet(true);
+            }
+          },
+          child: Card(
+            elevation: 1,
+            margin: EdgeInsets.zero,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12,
+                vertical: 8,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Is Outlet",
+                    style: Font.fix(15).regular(
+                      color: AppColor.headerTile,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Obx(() {
+                    final yes = bloc.isOutlet.value;
+                    return SharedSwitch(
+                      onToggle: (val) => bloc.isOutlet(val),
                       toggleSize: 19,
                       padding: 2,
                       height: 19,

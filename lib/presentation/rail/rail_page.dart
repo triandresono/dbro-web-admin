@@ -94,7 +94,7 @@ class _DrawerBody extends StatelessWidget {
           child: Obx(() {
             final state = bloc.permissionState.value;
             return Skeletonizer(
-              enabled: state is LoadingCase,
+              enabled: false,
               ignoreContainers: true,
               ignorePointers: true,
               child: Column(

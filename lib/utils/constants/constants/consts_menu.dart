@@ -15,10 +15,16 @@ class _ConstsMenu {
         icon: IconlyLight.profile,
         menus: [
           Menu(
-            menuCode: UserPage.path,
+            menuCode: UserListPage.path,
             menuName: "User",
-            route: const UserRoute(),
+            route: const UserListRoute(),
             icon: IconlyLight.profile,
+          ),
+          Menu(
+            menuCode: UserListPage.path,
+            menuName: "Attendance",
+            route: const UserListRoute(),
+            icon: IconlyLight.time_circle,
           ),
         ],
       ),
@@ -40,6 +46,13 @@ class _ConstsMenu {
         menuName: 'Division',
         route: const DivisionListRoute(),
         icon: IconlyLight.user_1,
+      ),
+      Menu(
+        menuCode: OutletListPage.path,
+        menuName: 'Payroll',
+        route: const OutletListRoute(),
+        // icon: IconlyLight.bag_2,
+        icon: Icons.local_atm_rounded,
       ),
       Menu(
         menuCode: SysconfigTypePage.path,

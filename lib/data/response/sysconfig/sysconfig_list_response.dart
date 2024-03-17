@@ -20,8 +20,7 @@ class SysconfigListResponse {
       dtos: map['sysconfigDTOs'] != null
           ? List<SysconfigListResponseItem>.from(
               (map['sysconfigDTOs'] as List).map<SysconfigListResponseItem>(
-                (x) => SysconfigListResponseItem.fromMap(
-                    x as Map<String, dynamic>),
+                (x) => SysconfigListResponseItem.fromMap(x),
               ),
             )
           : [],
@@ -39,13 +38,13 @@ class SysconfigListResponseItem {
   final String value;
 
   SysconfigListResponseItem({
-    required this.id,
-    required this.createdDate,
-    required this.createdBy,
-    required this.lastModifiedDate,
-    required this.lastModifiedBy,
-    required this.key,
-    required this.value,
+    this.id = '',
+    this.createdDate = '',
+    this.createdBy = '',
+    this.lastModifiedDate = '',
+    this.lastModifiedBy = '',
+    this.key = '',
+    this.value = '',
   });
 
   Map<String, dynamic> toMap() {

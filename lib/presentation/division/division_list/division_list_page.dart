@@ -60,7 +60,7 @@ class _Body extends GetState<DivisionListBloc> with _Worker {
                       builder: (context) {
                         return const DivisionAddDilalog();
                       },
-                    );
+                    ).then((_) => bloc.getRootList());
                   },
                 ),
               ],

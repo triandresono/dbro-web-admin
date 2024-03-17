@@ -21,4 +21,22 @@ class _User {
       }).toList(),
     });
   }
+
+  Either<StatusResponse, Map<String, dynamic>> get userAll {
+    return Right({
+      'totalCount': 12,
+      "userListingResultSets": List.generate(5, (index) {
+        final faker = Faker();
+        const id = Uuid();
+        return {
+          "id": id.v4(),
+          "name": faker.person.name(),
+          "joinDate": faker.date.dateTime().fromDate(),
+          'createdBy': faker.person.name(),
+          'role': faker.company.position(),
+          'division': faker.company.position(),
+        };
+      }).toList(),
+    });
+  }
 }

@@ -3,18 +3,30 @@ import 'package:dbro_admin/data/response/base/status_response.dart';
 import 'package:dbro_admin/domain/entity/any/get_id.dart';
 import 'package:dbro_admin/domain/entity/division/division_dropdown.dart';
 import 'package:dbro_admin/domain/entity/division/division_list.dart';
+import 'package:dbro_admin/domain/entity/division/outlet_payroll_list.dart';
 import 'package:dbro_admin/domain/entity/division/user_division.dart';
 
 abstract class DivisionRepository {
   Future<Either<StatusResponse, GetId>> addUserDivision(
-      Map<String, dynamic> body);
+    Map<String, dynamic> body,
+  );
   Future<Either<StatusResponse, DivisionList>> get rootList;
   Future<Either<StatusResponse, DivisionList>> childList(String id);
   Future<Either<StatusResponse, GetId>> createDivision(
-      Map<String, dynamic> body);
+    Map<String, dynamic> body,
+  );
   Future<Either<StatusResponse, DivisionDropdown>> get dropdown;
   Future<Either<StatusResponse, UserDivision>> userDivision(String id);
   Future<Either<StatusResponse, GetId>> createDivisionStructure(
+    Map<String, dynamic> body,
+  );
+  Future<Either<StatusResponse, StatusResponse>> removeUserDivision(
+    Map<String, dynamic> body,
+  );
+
+  Future<Either<StatusResponse, OutletPayrollList>> get outletList;
+
+  Future<Either<StatusResponse, StatusResponse>> updateDivisionPayroll(
     Map<String, dynamic> body,
   );
 }

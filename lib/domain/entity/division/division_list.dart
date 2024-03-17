@@ -1,21 +1,25 @@
 class DivisionList {
-  final List<DivisionListItem> divisionDTOs;
+  final List<DivisionListItem> divisionListingDTOs;
+  final int totalCount;
 
   DivisionList({
-    this.divisionDTOs = const [],
+    this.divisionListingDTOs = const [],
+    this.totalCount = 0,
   });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'divisionDTOs': divisionDTOs.map((x) => x.toMap()).toList(),
+      'divisionListingDTOs': divisionListingDTOs.map((x) => x.toMap()).toList(),
+      'totalCount': totalCount,
     };
   }
 
   factory DivisionList.fromMap(Map<String, dynamic> map) {
     return DivisionList(
-      divisionDTOs: map['divisionDTOs'] != null
+      totalCount: map['totalCount'] ?? 0,
+      divisionListingDTOs: map['divisionListingDTOs'] != null
           ? List<DivisionListItem>.from(
-              (map['divisionDTOs'] as List).map<DivisionListItem>(
+              (map['divisionListingDTOs'] as List).map<DivisionListItem>(
                 (x) => DivisionListItem.fromMap(x),
               ),
             )

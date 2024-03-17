@@ -29,4 +29,49 @@ extension ContextExtension on BuildContext {
   bool get isdesktop {
     return (this).deviceType == DeviceScreenType.desktop;
   }
+
+  bool get isdesktopOrTab {
+    return (this).deviceType == DeviceScreenType.desktop ||
+        (this).deviceType == DeviceScreenType.tablet;
+  }
+
+  Future<DateTime?> datePicker({
+    DateTime? initialDate,
+    DateTime? firstDate,
+    DateTime? lastDate,
+  }) async {
+    final dateSected = await showDatePicker(
+      initialEntryMode: DatePickerEntryMode.calendarOnly,
+      initialDate: initialDate ?? DateTime.now(),
+      firstDate: firstDate ?? DateTime(1800, 1, 1),
+      lastDate: lastDate ?? DateTime.now(),
+      context: this,
+      builder: (context, child) {
+        return Theme(
+          data: Theme.of(context).copyWith(
+            dialogTheme: const DialogTheme(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+            ),
+            colorScheme: const ColorScheme.light(
+              primary: AppColor.mainOrange, // header background color
+              onPrimary: Colors.white, // header text color
+              onSurface: AppColor.headerTile, // body text color
+            ),
+            textButtonTheme: TextButtonThemeData(
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.white,
+                textStyle: const TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          ),
+          child: child ?? const SizedBox(),
+        );
+      },
+    );
+    return dateSected;
+  }
 }

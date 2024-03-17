@@ -57,7 +57,7 @@ extension AppRouterExtension on AppRouter {
           filter: ImageFilter.blur(sigmaX: 2.5, sigmaY: 2.5),
           child: ErrorDialog2(
             title: title,
-            desc: desc,
+            desc: desc.isEmpty ? 'Something happen' : desc,
             mainButtonTitle: mainButtonTitle,
             secondaryTitle: secondaryTitle,
           ),
@@ -71,7 +71,7 @@ extension AppRouterExtension on AppRouter {
     required Widget dialog,
     bool dismissable = true,
   }) async {
-    var result = await showDialog(
+    final result = await showDialog(
       context: (this).navigatorKey.currentContext!,
       barrierDismissible: dismissable,
       builder: (context) {
@@ -91,5 +91,32 @@ extension AppRouterExtension on AppRouter {
     } else {
       return false;
     }
+  }
+
+  void close_loading() {
+    // while ((this).isDialogOpen) {
+    //   (this).pop();
+    // }
+    (this).pop();
+  }
+
+  void show_loading() {
+    (this).dialog(
+      dismissable: false,
+      dialog: Dialog(
+        elevation: 0.0,
+        insetPadding: EdgeInsets.zero,
+        backgroundColor: Colors.grey.withOpacity(0.2),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 2.5, sigmaY: 2.5),
+          child: Center(
+            child: LoadingAnimationWidget.horizontalRotatingDots(
+              color: AppColor.mainOrange,
+              size: 47,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

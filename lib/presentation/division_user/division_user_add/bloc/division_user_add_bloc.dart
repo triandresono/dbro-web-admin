@@ -25,12 +25,12 @@ class DivisionUserAddBloc extends GetxController with _Extender {
     );
   }
 
-  void submitCreate(UserDropdownItem item) async {
+  void submitCreate() async {
     createCase(LoadingCase());
     final response = await createRelationUsecase.addUserDivision(
       {
         'divisionId': argument.divisionId,
-        'userAuthId': item.id,
+        'userAuthId': selectedCase.value?.id,
       },
     );
     response.fold(

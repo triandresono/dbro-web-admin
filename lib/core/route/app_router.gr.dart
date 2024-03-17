@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AddUserRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AddUserPage(),
+      );
+    },
     DashboardRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -43,6 +49,18 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const LoginPage(),
+      );
+    },
+    OutletListRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const OutletListPage(),
+      );
+    },
+    OutletuserListRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const OutletuserListPage(),
       );
     },
     RailRoute.name: (routeData) {
@@ -77,13 +95,39 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SysconfigTypePage(),
       );
     },
-    UserRoute.name: (routeData) {
+    UserClockinRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const UserPage(),
+        child: const UserClockinPage(),
+      );
+    },
+    UserListRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const UserListPage(),
+      );
+    },
+    UserVerifyRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const UserVerifyPage(),
       );
     },
   };
+}
+
+/// generated route for
+/// [AddUserPage]
+class AddUserRoute extends PageRouteInfo<void> {
+  const AddUserRoute({List<PageRouteInfo>? children})
+      : super(
+          AddUserRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AddUserRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -152,6 +196,34 @@ class LoginRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'LoginRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [OutletListPage]
+class OutletListRoute extends PageRouteInfo<void> {
+  const OutletListRoute({List<PageRouteInfo>? children})
+      : super(
+          OutletListRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OutletListRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [OutletuserListPage]
+class OutletuserListRoute extends PageRouteInfo<void> {
+  const OutletuserListRoute({List<PageRouteInfo>? children})
+      : super(
+          OutletuserListRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'OutletuserListRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -241,15 +313,43 @@ class SysconfigTypeRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [UserPage]
-class UserRoute extends PageRouteInfo<void> {
-  const UserRoute({List<PageRouteInfo>? children})
+/// [UserClockinPage]
+class UserClockinRoute extends PageRouteInfo<void> {
+  const UserClockinRoute({List<PageRouteInfo>? children})
       : super(
-          UserRoute.name,
+          UserClockinRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'UserRoute';
+  static const String name = 'UserClockinRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [UserListPage]
+class UserListRoute extends PageRouteInfo<void> {
+  const UserListRoute({List<PageRouteInfo>? children})
+      : super(
+          UserListRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'UserListRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [UserVerifyPage]
+class UserVerifyRoute extends PageRouteInfo<void> {
+  const UserVerifyRoute({List<PageRouteInfo>? children})
+      : super(
+          UserVerifyRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'UserVerifyRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

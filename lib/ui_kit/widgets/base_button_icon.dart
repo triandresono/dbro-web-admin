@@ -40,15 +40,15 @@ class BaseButtonIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () => onPressed.call(),
+      onPressed: isDisabled ? null : () => onPressed.call(),
       style: TextButton.styleFrom(
         fixedSize: const Size.fromHeight(30),
-        backgroundColor: colorType.color,
+        backgroundColor: isDisabled ? Colors.grey : colorType.color,
         minimumSize: const Size(88, 44),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
           side: BorderSide(
-            color: colorType.borderColor,
+            color: isDisabled ? Colors.grey : colorType.borderColor,
             width: 0.5,
           ),
         ),

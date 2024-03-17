@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dbro_admin/data/response/base/status_response.dart';
-import 'package:dbro_admin/domain/usecase/local_usecase/local_usecase.dart';
+import 'package:dbro_admin/domain/usecase/local/local_usecase.dart';
 import 'package:dbro_admin/network/http_util/http_util.dart';
 import 'package:dbro_admin/network/http_logger/logging_interceptor.dart';
 // import 'package:dio/browser.dart';

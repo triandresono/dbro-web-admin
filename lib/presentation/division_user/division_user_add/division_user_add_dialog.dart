@@ -35,6 +35,12 @@ class DivisionUserAddDialog extends StatelessWidget {
 
 class _Switch extends GetState<DivisionUserAddBloc> with _Worker {
   @override
+  void registerStateEffect(BuildContext currentContext) {
+    (this).disposables.addAll(worker);
+    super.registerStateEffect(currentContext);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GetStateBuilder(
       container: this,
@@ -169,7 +175,7 @@ class _Body extends StatelessWidget {
             BaseButtonIcon(
               isFillWidth: false,
               title: "Submit",
-              onPressed: () {},
+              onPressed: () => bloc.submitCreate(),
             ),
           ],
         ),

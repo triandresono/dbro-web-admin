@@ -12,6 +12,8 @@ class Case<T> {
 
 class InitialCase<T> extends Case<T> {}
 
+class InitLoadingCase<T> extends Case<T> {}
+
 class LoadingCase<T> extends Case<T> {}
 
 class NoParameterCase<T> extends Case<T> {}

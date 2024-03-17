@@ -25,12 +25,12 @@ class DivisionAddRelationBloc extends GetxController with _Extender {
     );
   }
 
-  void submitCreate(DivisionDropdownItem item) async {
+  void submitCreate() async {
     createCase(LoadingCase());
     final response = await createRelationUsecase.createDivisionStructure(
       {
         'parentDivisionId': argument.id,
-        'childDivisionId': item.id,
+        'childDivisionId': selectedCase.value?.id,
       },
     );
     response.fold(

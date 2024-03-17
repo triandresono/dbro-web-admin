@@ -1,21 +1,23 @@
 class UserDivisionResponse {
-  final List<UserDivisionResponseItem> userListingDTOs;
+  final List<UserDivisionResponseItem> divisionUserListingDTOs;
 
   UserDivisionResponse({
-    this.userListingDTOs = const [],
+    this.divisionUserListingDTOs = const [],
   });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'userListingDTOs': userListingDTOs.map((x) => x.toMap()).toList(),
+      'divisionUserListingDTOs':
+          divisionUserListingDTOs.map((x) => x.toMap()).toList(),
     };
   }
 
   factory UserDivisionResponse.fromMap(Map<String, dynamic> map) {
     return UserDivisionResponse(
-      userListingDTOs: map['userListingDTOs'] != null
+      divisionUserListingDTOs: map['divisionUserListingDTOs'] != null
           ? List<UserDivisionResponseItem>.from(
-              (map['userListingDTOs'] as List).map<UserDivisionResponseItem>(
+              (map['divisionUserListingDTOs'] as List)
+                  .map<UserDivisionResponseItem>(
                 (x) => UserDivisionResponseItem.fromMap(x),
               ),
             )

@@ -8,7 +8,7 @@
             "name": "DEV",
             "request": "launch",
             "type": "dart",
-            "program": "lib/presentation/flavor/main_dev.dart",
+            "program": "lib/presentation/app_flavor/main_dev.dart",
             "args": [
                 "--flavor",
                 "dev"
@@ -18,7 +18,7 @@
             "name": "UAT",
             "request": "launch",
             "type": "dart",
-            "program": "lib/presentation/flavor/main_uat.dart",
+            "program": "lib/presentation/app_flavor/main_uat.dart",
             "args": [
                 "--flavor",
                 "uat"
@@ -28,7 +28,7 @@
             "name": "PROD",
             "request": "launch",
             "type": "dart",
-            "program": "lib/presentation/flavor/main_prod.dart",
+            "program": "lib/presentation/app_flavor/main_prod.dart",
             "args": [
                 "--flavor",
                 "prod"

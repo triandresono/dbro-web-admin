@@ -31,6 +31,7 @@ class DivisionUserListPage extends StatelessWidget {
         body: GetBuilder(
           init: DivisionUserListBloc(
             userDivisionUsecase: Get.find(),
+            removeUsecase: Get.find(),
             argument: DivisionUserListArgument.fromMap(Util.rawParameter),
           ),
           builder: (controller) {
@@ -46,6 +47,12 @@ class DivisionUserListPage extends StatelessWidget {
 }
 
 class _Body extends GetState<DivisionUserListBloc> with _Worker {
+  @override
+  void registerStateEffect(BuildContext currentContext) {
+    (this).disposables.addAll(worker);
+    super.registerStateEffect(currentContext);
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetStateBuilder(
@@ -64,16 +71,15 @@ class _Body extends GetState<DivisionUserListBloc> with _Worker {
                   title: "Add User Division",
                   icon: Icons.add,
                   onPressed: () async {
-                    final result = await AppRouter.nav.dialog(
-                      dialog: DivisionUserAddDialog(
-                        argument: DivisionUserAddArgument(
-                          divisionId: bloc.argument.divisionId,
-                        ),
-                      ),
-                    );
-                    if (result != null) {
-                      bloc.getUserDivision();
-                    }
+                    AppRouter.nav
+                        .dialog(
+                          dialog: DivisionUserAddDialog(
+                            argument: DivisionUserAddArgument(
+                              divisionId: bloc.argument.divisionId,
+                            ),
+                          ),
+                        )
+                        .then((_) => bloc.getUserDivision());
                   },
                 ),
               ],
@@ -85,9 +91,9 @@ class _Body extends GetState<DivisionUserListBloc> with _Worker {
               child: Obx(() {
                 final state = bloc.userCase.value;
                 final data = bloc.isInit.isFalse
-                    ? UserDivision.dummy().userListingDTOs
-                    : state.data?.userListingDTOs ??
-                        UserDivision.dummy().userListingDTOs;
+                    ? UserDivision.dummy().divisionUserListingDTOs
+                    : state.data?.divisionUserListingDTOs ??
+                        UserDivision.dummy().divisionUserListingDTOs;
                 return _Table(
                   isLoading: state is LoadingCase,
                   list: data,

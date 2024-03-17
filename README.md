@@ -1,16 +1,70 @@
-# dbro_admin
+# WOI By Indivata
 
-A new Flutter project.
+### Run Flutter app between Flavor for development and production with command prompt
 
-## Getting Started
+### FLUTTER VERSION 3.16.0
 
-This project is a starting point for a Flutter application.
+``` consoloe
+flutter pub run build_runner build --delete-conflicting-outputs 
+```
 
-A few resources to get you started if this is your first Flutter project:
+Development
+```console  
+flutter run --release -t lib/presentation/app_flavor/main_dev.dart --flavor dev  
+```
+SIT
+```console  
+flutter run --release -t lib/presentation/app_flavor/main_sit.dart --flavor sit  
+```  
+UAT
+```console  
+flutter run --release -t lib/presentation/app_flavor/main_uat.dart --flavor uat  
+```  
+Production
+```console  
+flutter run --release -t lib/presentation/app_flavor/main_prod.dart --flavor prod  
+```  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Build Release APK  between Flavor for development and production with command prompt
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+Development
+```console  
+flutter build web --release -t lib/presentation/app_flavor/main_dev.dart
+```  
+SIT
+```console  
+flutter build web --release -t lib/presentation/app_flavor/main_sit.dart 
+```  
+UAT
+```console  
+flutter build web --release -t lib/presentation/app_flavor/main_uat.dart
+```  
+
+### Build Release IPA  between Flavor for development and production with command prompt
+
+
+Development
+```console  
+flutter build ipa --release -t lib/presentation/app_flavor/main_dev.dart --flavor dev
+```  
+SIT
+```console  
+flutter build ipa --release -t lib/presentation/app_flavor/main_sit.dart --flavor sit  
+```  
+UAT
+```console  
+flutter build ipa --release -t lib/presentation/app_flavor/main_uat.dart --flavor uat  
+```  
+Production
+```console  
+flutter build ipa --release -t lib/presentation/app_flavor/main_prod.dart --flavor prod  
+``` 
+
+```console  
+flutter build appbundle -t lib/presentation/app_flavor/main_prod.dart --flavor prod
+```
+
+
+
+ 

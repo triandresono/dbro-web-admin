@@ -27,7 +27,7 @@ class DivisionListBloc extends GetxController with _Extender {
         }
       },
       (result) {
-        divisions.rxNew(result.divisionDTOs.map((element) {
+        divisions.rxNew(result.divisionListingDTOs.map((element) {
           return DivisionListUI(
             parent: element,
           );
@@ -46,7 +46,7 @@ class DivisionListBloc extends GetxController with _Extender {
         item.actionState(ErrorCase(failure));
       },
       (result) {
-        item.child = result.divisionDTOs.map((element) {
+        item.child = result.divisionListingDTOs.map((element) {
           return DivisionListUI(
             parent: element,
           );
