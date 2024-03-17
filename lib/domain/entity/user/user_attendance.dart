@@ -28,6 +28,14 @@ class UserAttendance {
           : [],
     );
   }
+
+  factory UserAttendance.dummy() {
+    return UserAttendance(
+      userAttendanceListingDTOs: List.generate(5, (index) {
+        return UserAttendanceItem();
+      }),
+    );
+  }
 }
 
 class UserAttendanceItem {

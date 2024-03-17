@@ -24,4 +24,23 @@ class PayrollRepositoryImpl extends PayrollRepository {
       }
     }
   }
+
+  @override
+  Future<Either<StatusResponse, dynamic>> calculatePayroll(
+    Map<String, dynamic> parameter,
+  ) async {
+    try {
+      final result = await datasource.calculatePayroll(parameter);
+      return result.fold(
+        (failure) => Left(failure),
+        (result) => Right(result),
+      );
+    } catch (e) {
+      if (e is Map) {
+        return Left(StatusResponse.failure(e as Map<String, dynamic>));
+      } else {
+        return Left(StatusResponse(message: e.toString()));
+      }
+    }
+  }
 }

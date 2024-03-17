@@ -14,6 +14,7 @@ import 'package:dbro_admin/presentation/rail/bloc/rail_extender.dart';
 import 'package:dbro_admin/presentation/rail/rail_worker.dart';
 import 'package:dbro_admin/presentation/splash/splash_page.dart';
 import 'package:dbro_admin/presentation/user/add_user/add_user_worker.dart';
+import 'package:dbro_admin/presentation/user/user_attendance/user_attendance_worker.dart';
 import 'package:dbro_admin/presentation/user/user_clockin/user_clockin_worker.dart';
 import 'package:dbro_admin/presentation/user/user_list/user_list_worker.dart';
 import 'package:dbro_admin/presentation/user/user_verify/user_verify_worker.dart';
@@ -72,6 +73,10 @@ class AppRouter extends _$AppRouter implements AutoRouteGuard {
           CustomRoute(
             path: UserClockinPage.path,
             page: UserClockinRoute.page,
+          ),
+          CustomRoute(
+            path: UserAttendancePage.path,
+            page: UserAttendanceRoute.page,
           ),
           /**
           *

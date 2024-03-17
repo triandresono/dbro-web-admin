@@ -6,6 +6,7 @@ import 'package:dbro_admin/presentation/division/division_list/division_list_wor
 import 'package:dbro_admin/presentation/outlet/oulet_list/outlet_list_worker.dart';
 import 'package:dbro_admin/presentation/parameter/sysconfig_type/sysconfig_type_worker.dart';
 import 'package:dbro_admin/presentation/role/role/role_worker.dart';
+import 'package:dbro_admin/presentation/user/user_attendance/user_attendance_worker.dart';
 import 'package:dbro_admin/presentation/user/user_list/user_list_worker.dart';
 import 'package:dbro_admin/ui_kit/colors.dart';
 import 'package:flutter/material.dart';

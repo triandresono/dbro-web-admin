@@ -21,9 +21,9 @@ class _ConstsMenu {
             icon: IconlyLight.profile,
           ),
           Menu(
-            menuCode: UserListPage.path,
+            menuCode: UserAttendancePage.path,
             menuName: "Attendance",
-            route: const UserListRoute(),
+            route: const UserAttendanceRoute(),
             icon: IconlyLight.time_circle,
           ),
         ],

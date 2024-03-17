@@ -144,27 +144,6 @@ class _Table extends StatelessWidget {
                     ),
                   ),
                   DataCell(
-                    // Padding(
-                    //   padding: const EdgeInsets.only(left: 12),
-                    //   child: TableButton(
-                    //     tips: 'Edit Bonus',
-                    //     icon: IconlyLight.edit_square,
-                    //     onTap: () async {
-                    //       final result = await AppRouter.nav.dialog(
-                    //         dialog: OutletEditBonusDialog(
-                    //           argument: OutletEditBonusArgument(
-                    //             bonusHarian: item.jumlahBonusHarian,
-                    //             bonusKawaka: item.jumlahBonusKawaka,
-                    //             id: item.id,
-                    //           ),
-                    //         ),
-                    //       );
-                    //       if (result == true) {
-                    //         onRefresh.call();
-                    //       }
-                    //     },
-                    //   ),
-                    // ),
                     Row(
                       children: [
                         TableButton(

@@ -60,6 +60,25 @@ class _Body extends GetState<OutletUserListBloc> with _Worker {
       builder: (controller) {
         return AnimatedColumn(
           children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const SizedBox(),
+                BaseButtonIcon(
+                  title: "Calculate Payroll",
+                  icon: IconlyLight.filter,
+                  onPressed: () async {
+                    AppRouter.nav.dialog(
+                      dialog: OutletPayrollCalculateDialog(
+                        argument: OutletPayrollCalculateArgument(
+                          divisionId: bloc.argument.id,
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ],
+            ),
             const SizedBox(height: 24),
             NoPermissionPage(
               cases: [controller.userCase],

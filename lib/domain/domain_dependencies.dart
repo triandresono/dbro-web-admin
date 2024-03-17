@@ -22,6 +22,8 @@ import 'package:dbro_admin/domain/usecase/logout/logout_usecase.dart';
 import 'package:dbro_admin/domain/usecase/my_permission/my_permission_usecase.dart';
 import 'package:dbro_admin/domain/usecase/outlet_list/outlet_list_usecase.dart';
 import 'package:dbro_admin/domain/usecase/outlet_list/outlet_list_usecase_impl.dart';
+import 'package:dbro_admin/domain/usecase/payroll_calculate/payroll_calculate_usecase.dart';
+import 'package:dbro_admin/domain/usecase/payroll_calculate/payroll_calculate_usecase_impl.dart';
 import 'package:dbro_admin/domain/usecase/payroll_user/payroll_user_usecase.dart';
 import 'package:dbro_admin/domain/usecase/payroll_user/payroll_user_usecase_impl.dart';
 import 'package:dbro_admin/domain/usecase/permission_create/permission_create_usecase.dart';
@@ -95,6 +97,7 @@ class DomainDependencies {
     Get.lazy<RoleDropdownUsecase>(RoleDropdownUsecaseImpl(Get.find()));
     Get.lazy<ClockinUserlistUsecase>(ClockinUserlistUsecaseImpl(Get.find()));
     Get.lazy<UserAttendanceUsecase>(UserAttendanceUsecaseImpl(Get.find()));
+    Get.lazy<PayrollCalculateUsecase>(PayrollCalculateUsecaseImpl(Get.find()));
 
     Get.lazy<UserUpdatePayrollUsecase>(
       UserUpdatePayrollUsecaseImpl(Get.find()),

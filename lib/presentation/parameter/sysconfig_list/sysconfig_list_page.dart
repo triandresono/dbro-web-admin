@@ -125,6 +125,7 @@ class _Body extends GetState<SysconfigListBloc> with _Worker {
                 );
               }
             }),
+            const SizedBox(height: 50),
           ],
         );
       },

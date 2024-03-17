@@ -28,4 +28,10 @@ abstract class HttpUtil {
     Map<String, dynamic>? parameter,
     Map<String, dynamic>? body,
   });
+
+  Future<Either<StatusResponse, Map<String, dynamic>>> webDownload({
+    required String uri,
+    Map<String, dynamic>? header,
+    Map<String, dynamic>? parameter,
+  });
 }

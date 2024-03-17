@@ -95,6 +95,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const SysconfigTypePage(),
       );
     },
+    UserAttendanceRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const UserAttendancePage(),
+      );
+    },
     UserClockinRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -308,6 +314,20 @@ class SysconfigTypeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'SysconfigTypeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [UserAttendancePage]
+class UserAttendanceRoute extends PageRouteInfo<void> {
+  const UserAttendanceRoute({List<PageRouteInfo>? children})
+      : super(
+          UserAttendanceRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'UserAttendanceRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

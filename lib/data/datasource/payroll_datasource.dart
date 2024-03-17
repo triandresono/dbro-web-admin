@@ -12,18 +12,34 @@ class PayrollDatasource {
     String id,
   ) async {
     try {
-      //TODO DUMMY
-
       final result = await http.get(
         uri: Api.payroll.userList,
         parameter: {'divisionId': id},
       );
-
-      // await Future.delayed(const Duration(seconds: 1));
-      // final result = Dummy.division.root;
       return result.fold(
         (failure) => Left(failure),
         (result) => Right(PayrollUserListResponse.fromMap(result)),
+      );
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<Either<StatusResponse, dynamic>> calculatePayroll(
+    Map<String, dynamic> parameter,
+  ) async {
+    try {
+      final result = await http.webDownload(
+        uri: Api.payroll.calulatePayroll,
+        parameter: parameter,
+        header: {
+          'Content-Type': 'application/octet-stream',
+          'accept': 'application/octet-stream',
+        },
+      );
+      return result.fold(
+        (failure) => Left(failure),
+        (result) => Right(result),
       );
     } catch (e) {
       rethrow;
